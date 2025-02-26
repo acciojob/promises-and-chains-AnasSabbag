@@ -26,7 +26,7 @@ let myPromise = new Promise(function(myResolve, myReject) {
 });
 
 myPromise.then(
-  function(value) {alert(`Welcome,${name} . You can vote.`);},
+  function(value) {alert(`Welcome, ${name} . You can vote.`);},
   function(error) {alert(`Oh sorry ${name}. You aren't old enough.`);}
 );	
 });
