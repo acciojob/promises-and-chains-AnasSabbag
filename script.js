@@ -1,27 +1,37 @@
 //your JS code here. If required.
-function handleSubmit() {
-	const name= document.getElementById("name").value;
-	const age= document.getElementById("age").value;
+document.getElementById("form").addEventListener("submit",function(event){
+	event.preventDefault();
+	let name = document.forms["form"]["name"].value;
+	let age = document.forms["form"]["age"].value;
+	
 	if(name==="" || age===undefined){
-		alert("Please enter valid details.")
+		alert("Please enter valid details")
 		return;
 	}
 
-	let myPromise = new Promise(function(myResolve, myReject) {
-  
-
+let myPromise = new Promise(function(myResolve, myReject) {
 // The producing code (this may take some time)
 
   if (age >= 18) {
-    myResolve("OK");
+	  setTimeout(function(){
+		myResolve("OK");  	
+	  },4000)
+    
   } else {
-    myReject("Error");
+	  setTimeout(function(){
+		myReject("Error"); 	
+	  },4000)
+    
   }
 });
 
 myPromise.then(
-  function(value) {alert("Welcome, . You can vote.");},
-  function(error) {alert("Oh sorry . You aren't old enough.");}
-);
+  function(value) {alert(`Welcome,${name} . You can vote.`);},
+  function(error) {alert(`Oh sorry ${name}. You aren't old enough.`);}
+);	
+});
+
+
 	
-}
+	
+
